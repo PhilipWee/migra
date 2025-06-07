@@ -1,7 +1,13 @@
--- alter view v set (security_invoker = true);
+alter type "public"."v2" owner to session_user;
 
--- alter view v owner to some_role;
+alter view "public"."v2" owner to session_user;
 
--- grant select on view v to some_user;
+alter type "public"."v" owner to session_user;
 
--- revoke select on view v from another_user;
+alter view "public"."v" owner to session_user;
+
+drop view if exists "public"."v2";
+
+alter type "public"."v" owner to schemainspect_test_role2;
+
+alter view "public"."v" owner to schemainspect_test_role2;

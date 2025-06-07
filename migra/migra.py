@@ -99,6 +99,7 @@ class Migration(object):
         self.add(self.changes.triggers(drops_only=True))
         self.add(self.changes.rlspolicies(drops_only=True))
         if privileges:
+            self.add(self.changes.owners(drops_only=True))
             self.add(self.changes.privileges(drops_only=True))
         self.add(self.changes.non_pk_constraints(drops_only=True))
 
@@ -121,6 +122,7 @@ class Migration(object):
         self.add(self.changes.mv_indexes(creations_only=True))
 
         if privileges:
+            self.add(self.changes.owners(creations_only=True))
             self.add(self.changes.privileges(creations_only=True))
         self.add(self.changes.rlspolicies(creations_only=True))
         self.add(self.changes.triggers(creations_only=True))

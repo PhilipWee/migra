@@ -23,6 +23,7 @@ THINGS = [
     "collations",
     "rlspolicies",
     "triggers",
+    "owners"
 ]
 PK = "PRIMARY KEY"
 
